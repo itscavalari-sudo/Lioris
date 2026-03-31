@@ -14,7 +14,7 @@ def homepage():
     formlogin = FormLogin()
     if formlogin.validate_on_submit():
         usuario = Usuario.query.filter_by(email=formlogin.email.data).first()
-        if usuario and bcrypt.check_password_hash(usuario.senha, formlogin.senha.data):
+        if usuario and bcrypt.check_password_hash(usuario.senha.encode("utf-8"), formlogin.senha.data):
             login_user(usuario)
             return redirect(url_for("perfil", usuario=usuario.username,id_usuario=usuario.id))
     return render_template("homepage.html", form=formlogin)
@@ -27,7 +27,7 @@ def criarconta():
     print("Erros:", form_criarconta.errors)
 
     if form_criarconta.validate_on_submit():
-        senha = bcrypt.generate_password_hash(form_criarconta.senha.data)
+        senha = bcrypt.generate_password_hash(form_criarconta.senha.data).decode("utf-8")
         usuario = Usuario(
             username=form_criarconta.username.data,
             senha=senha, email=form_criarconta.email.data
