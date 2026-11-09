@@ -62,6 +62,7 @@ http://127.0.0.1:5000
 ## Estrutura do projeto
 
 lioris/
+
 │
 ├── models.py            # Modelos do banco de dados
 ├── routes.py            # Rotas
