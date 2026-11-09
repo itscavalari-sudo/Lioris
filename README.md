@@ -64,10 +64,16 @@ http://127.0.0.1:5000
 lioris/
 
 │
+
 ├── models.py            # Modelos do banco de dados
+
 ├── routes.py            # Rotas
+
+
 ├── forms.py             # Arquivo de forms
+
 ├── templates/           # Arquivos HTML  
+
 ├── static/              
       └── css            # Arquivo CSS
       └── fotos_posts    # Imagens
